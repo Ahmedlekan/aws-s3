@@ -10,7 +10,7 @@ Amazon S3 provides a simple and cost-effective way to host static websites. This
 
 Bucket Name:
 
-- The bucket name must exactly match your registered domain name in Route 53 (e.g., www.example.com or example.com).
+- The bucket name must exactly match your registered domain name in Route 53.
 
 Bucket names must be globally unique and follow S3 naming rules:
 
