@@ -121,7 +121,7 @@ Define a simple record:
 
 ![Image](https://github.com/user-attachments/assets/aa46c220-1a5f-4a3e-8955-bc2806d191f2)
 
-- Record name: Match the bucket name (e.g., www.example.com or example.com).
+- Record name: Match the bucket name.
 
 - Record type: A (IPv4 address).
 
