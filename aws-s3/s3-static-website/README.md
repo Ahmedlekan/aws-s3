@@ -100,9 +100,60 @@ Verify that your website loads correctly.
 
 
 
+## Link Your Website to a Custom Domain Using Route 53
+
+### Set Up Route 53
+
+![Image](https://github.com/user-attachments/assets/150faa0a-3cf8-4c77-a523-65c3328a59ba)
+
+Open the Route 53 console in another tab.
+
+Go to Hosted Zones and select your domain.
+
+
+### Create a Record
+
+![Image](https://github.com/user-attachments/assets/13ae61f1-5a1e-4a92-813d-f9bf319a9fda)
+
+Click Create Record.
+
+Define a simple record:
+
+![Image](https://github.com/user-attachments/assets/aa46c220-1a5f-4a3e-8955-bc2806d191f2)
+
+- Record name: Match the bucket name (e.g., www.example.com or example.com).
+
+- Record type: A (IPv4 address).
+
+- Alias: Enable Alias.
+
+- Route traffic to: Select Alias to S3 website endpoint.
+
+- Choose the region where your S3 bucket is located.
+
+- Click Create Record.
+
+
+### Verify Your Custom Domain
+
+Wait a few minutes for DNS propagation.
+
+Open your custom domain in a browser.
+
+Your static website should now be accessible via your custom domain.
+
+
+## Conclusion
+
+Hosting a static website on Amazon S3 is a straightforward and cost-effective solution. By following these steps, you can:
+
+- Create and configure an S3 bucket for static website hosting.
+
+- Upload and manage your website files.
+
+- Link your website to a custom domain using Route 53.
+
+This setup is ideal for blogs, portfolios, and other static content. For advanced features like HTTPS, caching, and global distribution, consider integrating AWS CloudFront. We will do this in another repo.
 
 
 
-
-
-   
