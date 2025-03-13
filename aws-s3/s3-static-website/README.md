@@ -4,7 +4,7 @@ Amazon S3 provides a simple and cost-effective way to host static websites. This
 
 ## Steps to Host a Static Website on S3
 
-1. Create an S3 Bucket
+### Create an S3 Bucket
 
 ![Image](https://github.com/user-attachments/assets/519786eb-8149-4e3f-80e6-fb06478f582c)
 
@@ -20,7 +20,7 @@ Bucket names must be globally unique and follow S3 naming rules:
 
 - Cannot be an IP address.
 
-1.2. Disable Block Public Access:
+2. Disable Block Public Access:
 
 ![Image](https://github.com/user-attachments/assets/0b7fbeea-85e8-4e77-9d76-376c82bddf24)
 
@@ -29,7 +29,7 @@ Since this is a public website, you need to disable Block Public Access:
 - Uncheck Block all public access and confirm.
 
 
-2. Enable Static Website Hosting
+### Enable Static Website Hosting
 
 ![Image](https://github.com/user-attachments/assets/6c103c62-77dd-49c5-9943-20379b33db12)
 
@@ -52,7 +52,7 @@ Save the changes.
 Copy the Website endpoint URL. This is the URL you’ll use to access your website.
 
 
-3. Upload Website Files
+### Upload Website Files
 
 ![Image](https://github.com/user-attachments/assets/14215513-d2b9-42ed-84cb-73f6fa5f25b5)
 
@@ -65,7 +65,7 @@ Ensure the files are publicly accessible:
 - Use a bucket policy to grant public access.
 
 
-4. Set Bucket Policy for Public Access
+### Set Bucket Policy for Public Access
 
 To allow public access to your website, add the following bucket policy. Replace examplebucket with your bucket name.
 
@@ -91,7 +91,7 @@ Action: "s3:GetObject" allows users to read objects.
 Resource: Specifies the bucket and objects (/* means all objects in the bucket).
 
 
-5. Test Your Website
+### Test Your Website
 
 Paste the Website endpoint URL into your browser.
 
