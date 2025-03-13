@@ -98,6 +98,8 @@ Key Features of ACLs:
 
 ## Block Public Access
 
+![Image](https://github.com/user-attachments/assets/e8af31e4-7a58-40dc-9dab-c431dd806f28)
+
 To prevent accidental public exposure of your data, S3 provides Block Public Access settings. These settings override any bucket policies or ACLs that grant public access.
 Key Features of Block Public Access:
 
