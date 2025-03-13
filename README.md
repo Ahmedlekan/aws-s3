@@ -7,9 +7,15 @@ automation, and integration techniques, this course will provide practical, real
 ### What You'll Learn:
 
 ✅ S3 Fundamentals: Buckets, Objects, and Storage Classes
+
 ✅ S3 Security: IAM Policies, Bucket Policies, ACLs, and Encryption
+
 ✅ S3 Lifecycle Management & Cost Optimization
+
 ✅ Static Website Hosting on S3 with CloudFront
+
 ✅ S3 Event-Driven Architecture (Lambda, SNS, SQS, Step Functions)
+
 ✅ Data Processing & Analytics with S3 and AWS Services
+
 ✅ Real-world Mini Projects & Deployments
