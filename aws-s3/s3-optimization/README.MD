@@ -31,4 +31,77 @@ Reliability depends on the stability of the network connection.
 Ideal for small to medium-sized files (up to 5 GB) where network reliability is high.
 
 
+## 2. Multipart Upload
+
+### How It Works
+
+- A multipart upload breaks the object into smaller parts and uploads them in parallel.
+
+- Each part can be between 5 MB and 5 GB in size.
+
+- The last part can be smaller than 5 MB.
+
+- A maximum of 10,000 parts can be uploaded for a single object.
+
+### Key Characteristics
+
+Parallel Uploads:
+
+- Parts are uploaded concurrently, improving upload speed.
+
+Failure Handling:
+
+- If a part fails to upload, only that part needs to be retried, not the entire object.
+
+Transfer Rate:
+
+- The overall transfer rate is the sum of the speeds of all individual parts.
+
+Minimum Data Size:
+
+- Multipart upload is recommended for objects larger than 100 MB.
+
+### Use Case
+
+Ideal for large files (over 100 MB) or unreliable networks.
+
+Commonly used for backups, media files, and large datasets.
+
+
+## 3. S3 Transfer Acceleration
+
+### How It Works
+
+- S3 Transfer Acceleration uses Amazon CloudFront's edge locations to accelerate data transfers to and from S3.
+
+- Data is routed through the nearest edge location, reducing latency and improving transfer speeds.
+
+Key Characteristics
+
+Edge Locations:
+
+- Data is transferred through AWS's global network of edge locations.
+
+Faster Transfers:
+
+- Reduces latency by optimizing the network path.
+
+Compatibility:
+
+- Works with both single PUT and multipart uploads.
+
+Enable/Disable:
+
+- Transfer Acceleration must be enabled on the bucket.
+
+Use Case
+
+Ideal for global applications where data needs to be transferred over long distances.
+
+Useful for improving upload/download speeds for users in different geographic regions.
+
+
+
+
+
 
