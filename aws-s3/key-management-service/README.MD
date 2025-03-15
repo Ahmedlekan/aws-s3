@@ -120,6 +120,180 @@ DEKs are used for encrypting data larger than 4 KB (e.g., files, databases, or b
     - Aliases can be updated to point to different keys, simplifying key management.
 
 
+## Key Policies and Security
+
+1. Key Policies
+
+    Every KMS key has a key policy, which is a resource-based policy that defines who can access and manage the key.
+
+    Key policies are the primary mechanism for controlling access to KMS keys.
+
+2. IAM Policies
+
+    IAM policies can be used to grant permissions for KMS actions (e.g., kms:Encrypt, kms:Decrypt).
+
+    IAM policies must be combined with key policies to grant access.
+
+3. Grants
+
+    Grants provide temporary access to KMS keys for specific operations.
+
+    Grants are useful for delegating access to AWS services or other users.
+
+
+
+## Encrypt and Decrypt Battleplans With KMS
+
+1. Configure key
+
+![Image](https://github.com/user-attachments/assets/5fa44434-c2e6-4ac0-b3b2-ac565fb53560)
+
+2. Add Labels
+
+- Alias
+
+![Image](https://github.com/user-attachments/assets/ced7c357-f957-4295-ab38-52c715748426)
+
+3. Define key administrative permissions
+
+![Image](https://github.com/user-attachments/assets/492022f5-de03-4977-9298-c669dbda2d41)
+
+4. Define key usage permissions
+
+![Image](https://github.com/user-attachments/assets/42bc08a6-5be8-4447-b261-c3dbb12c4522)
+
+5. Edit key policy
+
+```bash
+{
+	"Id": "key-consolepolicy-3",
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "Enable IAM User Permissions",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::123456789:root"
+			},
+			"Action": "kms:*",
+			"Resource": "*"
+		},
+		{
+			"Sid": "Allow access for Key Administrators",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::123456789:user/itadmin"
+			},
+			"Action": [
+				"kms:Create*",
+				"kms:Describe*",
+				"kms:Enable*",
+				"kms:List*",
+				"kms:Put*",
+				"kms:Update*",
+				"kms:Revoke*",
+				"kms:Disable*",
+				"kms:Get*",
+				"kms:Delete*",
+				"kms:TagResource",
+				"kms:UntagResource",
+				"kms:ScheduleKeyDeletion",
+				"kms:CancelKeyDeletion",
+				"kms:RotateKeyOnDemand"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "Allow use of the key",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::123456789:user/itadmin"
+			},
+			"Action": [
+				"kms:Encrypt",
+				"kms:Decrypt",
+				"kms:ReEncrypt*",
+				"kms:GenerateDataKey*",
+				"kms:DescribeKey"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "Allow attachment of persistent resources",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::123456789:user/itadmin"
+			},
+			"Action": [
+				"kms:CreateGrant",
+				"kms:ListGrants",
+				"kms:RevokeGrant"
+			],
+			"Resource": "*",
+			"Condition": {
+				"Bool": {
+					"kms:GrantIsForAWSResource": "true"
+				}
+			}
+		}
+	]
+}
+```
+
+6. Review
+
+- Review all the configuration
+
+7. Open cloudshell
+
+- Paste this to create a battleplan file
+
+```bash
+echo "Find all the doggos, distarct them with the yumz" > battleplan.txt
+```
+
+- use the cat command to confirm battleplan file you created 
+
+```bash
+cat battleplan.txt
+```
+
+- encrypt the battleplan file
+
+```bash
+aws kms encrypt \
+    --key-id 1234abcd-12ab-34cd-56ef-1234567890ab \
+    --plaintext fileb://battleplan.txt \
+    --output text \
+    --query CiphertextBlob | base64 \
+    --decode > not_battleplan.enc
+```
+- Replace the key-id with your kms key-id
+
+- Use cat to confirm the file you encrypt
+
+```bash
+cat not_battleplan.enc
+```
+![Image](https://github.com/user-attachments/assets/cb569f5e-f104-4c28-879b-0bd3ad534b02)
+
+
+- decrypt the not_battleplan.enc
+
+aws kms decrypt \
+    --ciphertext-blob fileb://not_battleplan.enc \
+    --output text \
+    --query Plaintext | base64 --decode > decryptedplan.txt
+
+- Use cat command to confirm the decryptedplan file
+
+```bash
+cat decryptedplan.txt
+```
+![Image](https://github.com/user-attachments/assets/c60c65e4-b047-4d96-8f05-463893f20220)
+
+
+
 
 
 
