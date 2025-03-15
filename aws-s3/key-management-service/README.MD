@@ -280,10 +280,12 @@ cat not_battleplan.enc
 
 - decrypt the not_battleplan.enc
 
+```bash
 aws kms decrypt \
     --ciphertext-blob fileb://not_battleplan.enc \
     --output text \
     --query Plaintext | base64 --decode > decryptedplan.txt
+```
 
 - Use cat command to confirm the decryptedplan file
 
@@ -291,8 +293,6 @@ aws kms decrypt \
 cat decryptedplan.txt
 ```
 ![Image](https://github.com/user-attachments/assets/c60c65e4-b047-4d96-8f05-463893f20220)
-
-
 
 
 
