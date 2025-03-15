@@ -94,6 +94,16 @@ Enable/Disable:
 
 - Transfer Acceleration must be enabled on the bucket.
 
+### How to Enable
+
+![Image](https://github.com/user-attachments/assets/0f9b1d71-181e-40cb-b335-71ca4de2e149)
+
+- Go to the S3 bucket's Properties tab.
+
+- Enable Transfer Acceleration.
+
+- Use the accelerated endpoint for uploads and downloads (e.g., bucketname.s3-accelerate.amazonaws.com).
+
 Use Case
 
 Ideal for global applications where data needs to be transferred over long distances.
