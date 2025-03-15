@@ -1,6 +1,6 @@
 # S3 Bucket Keys
 
-![Image](https://github.com/user-attachments/assets/95a77ee0-91f6-4922-8584-ee78544f30c2)
+![Image](https://github.com/user-attachments/assets/c1353f00-71ac-4843-a181-ee8d844fad86)
 
 Amazon S3 Bucket Keys are a feature designed to reduce the cost and operational overhead of using AWS Key Management Service (KMS) for encrypting objects in S3. By generating a bucket-level key, S3 Bucket Keys minimize the number of calls to KMS, improving performance and reducing costs. Below is a detailed explanation of how S3 Bucket Keys work, their benefits, and their behavior in various scenarios.
 
@@ -85,8 +85,6 @@ Amazon S3 Bucket Keys are a feature designed to reduce the cost and operational 
 ## Enabling S3 Bucket Keys
 
 ### Steps to Enable S3 Bucket Keys
-
-![Image](https://github.com/user-attachments/assets/95a77ee0-91f6-4922-8584-ee78544f30c2)
 
 1. Create or Select a Bucket:
 
