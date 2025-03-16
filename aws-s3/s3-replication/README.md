@@ -178,12 +178,13 @@ E.g US West (N. California) us-west-1
 - Click on save
     - Choose No, do not replicate existing objects since we do not have any object in the bucket now.  
 
+- Go to the source bucket and upload your static website file
 
-Go to the source bucket and upload 
+![Image](https://github.com/user-attachments/assets/14215513-d2b9-42ed-84cb-73f6fa5f25b5)
+
+- Automatically, your static website file will be replicated into your destination bucket. 
 
 
-
-
-Conclusion
+## Conclusion
 
 Amazon S3 Replication is a powerful feature for ensuring data durability, availability, and compliance. By understanding the configuration options, considerations, and use cases, you can effectively implement replication strategies to meet your specific needs. Whether for log aggregation, environment synchronization, or global resilience, S3 Replication offers flexible and robust solutions for data management.
